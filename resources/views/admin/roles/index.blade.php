@@ -5,7 +5,6 @@
 @section('content')
 <div class="container-fluid">
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <!-- <h4 class="mb-0">Role Management</h4> -->
         <a href="{{ route('admin.roles.create') }}" class="btn btn-primary">
             <i class="fas fa-plus me-2"></i>Create New Role
         </a>
@@ -31,6 +30,7 @@
                             <td>#{{ $role->id }}</td>
                             <td>
                                 <strong>{{ $role->name }}</strong>
+                                
                             </td>
                             <td>
                                 @if($role->permissions->count() > 0)
@@ -46,16 +46,35 @@
                             <td>{{ $role->created_at->format('M d, Y') }}</td>
                             <td>
                                 <div class="btn-group" role="group">
-                                    <a href="{{ route('admin.roles.edit', $role) }}" class="btn btn-sm btn-primary" title="Edit">
-                                        <i class="fas fa-edit"></i>
-                                    </a>
-                                    <form action="{{ route('admin.roles.destroy', $role) }}" method="POST" class="d-inline delete-form">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-sm btn-danger" title="Delete" onclick="return confirm('Are you sure?')">
+                                    {{-- Edit Button --}}
+                                    @if($role->name !== 'user')
+                                        {{-- Show normal edit button for non-user roles --}}
+                                        <a href="{{ route('admin.roles.edit', $role) }}" class="btn btn-sm btn-primary" title="Edit">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                    @else
+                                        {{-- Show disabled edit button for user role --}}
+                                        <button class="btn btn-sm btn-secondary" disabled title="Cannot edit system role">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                    @endif
+                                    
+                                    {{-- Delete Button --}}
+                                    @if($role->name !== 'user')
+                                        {{-- Show delete button for non-user roles --}}
+                                        <form action="{{ route('admin.roles.destroy', $role) }}" method="POST" class="d-inline delete-form">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-sm btn-danger" title="Delete" onclick="return confirm('Are you sure?')">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </form>
+                                    @else
+                                        {{-- Show disabled delete button for user role --}}
+                                        <button class="btn btn-sm btn-secondary" disabled title="Cannot delete system role">
                                             <i class="fas fa-trash"></i>
                                         </button>
-                                    </form>
+                                    @endif
                                 </div>
                             </td>
                         </tr>

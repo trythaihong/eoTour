@@ -56,6 +56,7 @@ class RoleController extends Controller
         
         return view('admin.roles.edit', compact('role', 'permissions', 'rolePermissions'));
     }
+    
 
     public function update(Request $request, Role $role)
     {
@@ -77,7 +78,7 @@ class RoleController extends Controller
         return redirect()->route('admin.roles.index')
             ->with('success', 'Role updated successfully.');
     }
-
+    
     public function destroy(Role $role)
     {
         $role->delete();

@@ -120,28 +120,28 @@
                     <div class="stat-card">
                         <i class="fas fa-route"></i>
                         <div class="number">{{ $featuredTours->count() }}+</div>
-                        <p>Amazing Tours</p>
+                        <p​ class="text-dark">Amazing Tours</p​>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="stat-card">
                         <i class="fas fa-users"></i>
                         <div class="number">1000+</div>
-                        <p>Happy Travelers</p>
+                        <p class="text-dark">Happy Travelers</p>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="stat-card">
                         <i class="fas fa-globe-asia"></i>
                         <div class="number">50+</div>
-                        <p>Destinations</p>
+                        <p class="text-dark">Destinations</p>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="stat-card">
                         <i class="fas fa-award"></i>
                         <div class="number">10+</div>
-                        <p>Years Experience</p>
+                        <p class="text-dark">Years Experience</p>
                     </div>
                 </div>
             </div>

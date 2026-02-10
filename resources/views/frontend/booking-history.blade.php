@@ -52,7 +52,7 @@
                                     <td>{{ $booking->people_count }}</td>
                                     <td>${{ number_format($booking->total_price, 2) }}</td>
                                     <td>
-                                        <span class="badge badge-{{ $booking->status }} text-dark">
+                                        <span class="badge badge-{{ $booking->status }} text-danger">
                                             {{ ucfirst($booking->status) }}
                                         </span>
                                     </td>

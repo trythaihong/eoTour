@@ -17,6 +17,7 @@ class TourController extends Controller
             }
             return $next($request);
         });
+        
     }
     public function index(Request $request)
     {
