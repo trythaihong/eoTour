@@ -6,9 +6,11 @@
 <div class="container-fluid">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <!-- <h4 class="mb-0">Tour Management</h4> -->
+           @can('create tours')
         <a href="{{ route('admin.tours.create') }}" class="btn btn-primary">
             <i class="fas fa-plus me-2"></i>Add New Tour
         </a>
+        @endcan
     </div>
 
     <!-- Search and Filter -->
@@ -75,18 +77,19 @@
                             </td>
                             <td>
                                 <div class="btn-group" role="group">
-                                    <a href="{{ route('tour.show', $tour) }}" class="btn btn-sm btn-info" title="View">
-                                        <i class="fas fa-eye"></i>
-                                    </a>
+                                     @can('edit tours')
                                     <a href="{{ route('admin.tours.edit', $tour) }}" class="btn btn-sm btn-primary" title="Edit">
                                         <i class="fas fa-edit"></i>
                                     </a>
+                                    @endcan
                                     <form action="{{ route('admin.tours.destroy', $tour) }}" method="POST" class="d-inline delete-form">
                                         @csrf
                                         @method('DELETE')
+                                       @can('delete tours')
                                         <button type="submit" class="btn btn-sm btn-danger" title="Delete" onclick="return confirm('Are you sure?')">
                                             <i class="fas fa-trash"></i>
                                         </button>
+                                        @endcan
                                     </form>
                                 </div>
                             </td>

@@ -86,7 +86,7 @@
                                                         <p class="mb-1"><strong>People:</strong> {{ $booking->people_count }}</p>
                                                         <p class="mb-1"><strong>Total Price:</strong> ${{ number_format($booking->total_price, 2) }}</p>
                                                         <p class="mb-1"><strong>Status:</strong> 
-                                                            <span class="badge badge-{{ $booking->status }}">{{ ucfirst($booking->status) }}</span>
+                                                            <span class="badge badge-{{ $booking->status }} text-danger">{{ ucfirst($booking->status) }}</span>
                                                         </p>
                                                     </div>
                                                 </div>

@@ -12,9 +12,10 @@ class BookingController extends Controller
     public function __construct()
     {
         $this->middleware(function ($request, $next) {
-            if (!auth()->user()->hasRole('admin')) {
+           if (!auth()->user()->hasRole(['admin', 'subAdmin'])) {
                 abort(403, 'Unauthorized');
             }
+
             return $next($request);
         });
         
@@ -48,6 +49,9 @@ class BookingController extends Controller
 
     public function create()
     {
+         if (!auth()->user()->can('create bookings')) {
+                    abort(403,"don't have permission to create bookings");
+                }
         $tours = Tour::where('status', 'active')->get();
         return view('admin.bookings.create', compact('tours'));
     }
@@ -75,6 +79,9 @@ class BookingController extends Controller
 
     public function edit(Booking $booking)
     {
+          if (!auth()->user()->can('edit bookings')) {
+                    abort(403,"don't have permission to edit bookings");
+                }
         $tours = Tour::where('status', 'active')->get();
         return view('admin.bookings.edit', compact('booking', 'tours'));
     }
@@ -101,8 +108,11 @@ class BookingController extends Controller
 
     public function destroy(Booking $booking)
     {
+        // abort_if(!auth()->user()->can('delete bookings'), 403);
+          if (!auth()->user()->can('delete bookings')) {
+                    abort(403,"don't have permission to delete bookings");
+                }
         $booking->delete();
-
         return redirect()->route('admin.bookings.index')
             ->with('success', 'Booking deleted successfully.');
     }

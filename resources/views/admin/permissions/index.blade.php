@@ -5,10 +5,11 @@
 @section('content')
 <div class="container-fluid">
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <!-- <h4 class="mb-0">Permission Management</h4> -->
+           @can('create permissions')
         <a href="{{ route('admin.permissions.create') }}" class="btn btn-primary">
             <i class="fas fa-plus me-2"></i>Create New Permission
         </a>
+        @endcan
     </div>
 
     <!-- Permissions Table -->
@@ -37,15 +38,19 @@
                                 <td>{{ $permission->created_at->format('M d, Y') }}</td>
                                 <td>
                                     <div class="btn-group" role="group">
+                                         @can('edit permissions')
                                         <a href="{{ route('admin.permissions.edit', $permission) }}" class="btn btn-sm btn-primary" title="Edit">
                                             <i class="fas fa-edit"></i>
                                         </a>
+                                        @endcan
                                         <form action="{{ route('admin.permissions.destroy', $permission) }}" method="POST" class="d-inline delete-form">
                                             @csrf
                                             @method('DELETE')
+                                             @can('delete permissions')
                                             <button type="submit" class="btn btn-sm btn-danger" title="Delete" onclick="return confirm('Are you sure?')">
                                                 <i class="fas fa-trash"></i>
                                             </button>
+                                            @endcan
                                         </form>
                                     </div>
                                 </td>

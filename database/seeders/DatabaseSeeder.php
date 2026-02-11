@@ -39,6 +39,7 @@ class DatabaseSeeder extends Seeder
         // Assign all permissions to admin
         $adminRole->syncPermissions(Permission::all());
 
+        
         // Create admin user
         $admin = User::create([
             'name' => 'Admin User',
@@ -58,7 +59,7 @@ class DatabaseSeeder extends Seeder
             'address' => 'User Address'
         ]);
         $user->assignRole('user');
-
+        
         // Create sample tours
         $tours = [
             [

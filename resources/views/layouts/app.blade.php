@@ -199,9 +199,12 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="{{ route('home') }}">
-                <i class="fas fa-globe-asia me-2"></i>EO Tour
+           <a class="navbar-brand" href="{{ route('home') }}">
+                <img src="{{ asset('logo.png') }}" width="60" alt="">
+
+                EO Tour
             </a>
+
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -227,7 +230,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="{{ route('booking.history') }}">Booking History</a></li>
-                                @if(Auth::user()->hasRole('admin'))
+                                @if(Auth::user()->hasRole(['admin', 'subAdmin']))
                                     <li><a class="dropdown-item" href="{{ route('admin.dashboard') }}">Admin Dashboard</a></li>
                                 @endif
                                 <li><hr class="dropdown-divider"></li>

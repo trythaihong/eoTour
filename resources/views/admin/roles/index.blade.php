@@ -5,9 +5,11 @@
 @section('content')
 <div class="container-fluid">
     <div class="d-flex justify-content-between align-items-center mb-4">
+         @can('create role')
         <a href="{{ route('admin.roles.create') }}" class="btn btn-primary">
             <i class="fas fa-plus me-2"></i>Create New Role
         </a>
+        @endcan
     </div>
 
     <!-- Roles Table -->
@@ -49,9 +51,11 @@
                                     {{-- Edit Button --}}
                                     @if($role->name !== 'user')
                                         {{-- Show normal edit button for non-user roles --}}
+                                         @can('edit role')
                                         <a href="{{ route('admin.roles.edit', $role) }}" class="btn btn-sm btn-primary" title="Edit">
                                             <i class="fas fa-edit"></i>
                                         </a>
+                                         @endcan
                                     @else
                                         {{-- Show disabled edit button for user role --}}
                                         <button class="btn btn-sm btn-secondary" disabled title="Cannot edit system role">
@@ -65,9 +69,11 @@
                                         <form action="{{ route('admin.roles.destroy', $role) }}" method="POST" class="d-inline delete-form">
                                             @csrf
                                             @method('DELETE')
+                                             @can('delete role')
                                             <button type="submit" class="btn btn-sm btn-danger" title="Delete" onclick="return confirm('Are you sure?')">
                                                 <i class="fas fa-trash"></i>
                                             </button>
+                                             @endcan
                                         </form>
                                     @else
                                         {{-- Show disabled delete button for user role --}}

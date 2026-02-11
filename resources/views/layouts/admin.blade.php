@@ -156,7 +156,7 @@
             <!-- Sidebar -->
             <nav class="col-md-3 col-lg-2 d-md-block sidebar collapse">
                 <div class="logo">
-                    <h3><i class="fas fa-globe-asia me-2"></i>EO Tour Admin</h3>
+                    <h3><img src="{{ asset('logo.png') }}" width="60" alt=""> Admin</h3>
                 </div>
                 <div class="position-sticky pt-3">
                     <ul class="nav flex-column">
@@ -185,6 +185,20 @@
                                 <i class="fas fa-key"></i> Permissions
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->is('admin/report*') ? 'active' : '' }}" 
+                            href="{{ route('admin.booking-by-tour') }}">
+                                <i class="fas fa-chart-bar"></i> Report by Tour
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->is('admin/report*') ? 'active' : '' }}" 
+                            href="{{ route('admin.booking-report') }}">
+                                <i class="fas fa-chart-line"></i> Report Booking
+                            </a>
+                        </li>
+
                         <li class="nav-item">
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf

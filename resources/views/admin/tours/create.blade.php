@@ -5,7 +5,7 @@
 @section('content')
 <div class="container-fluid">
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h4 class="mb-0">Create New Tour</h4>
+        <!-- <h4 class="mb-0">Create New Tour</h4> -->
         <a href="{{ route('admin.tours.index') }}" class="btn btn-secondary">
             <i class="fas fa-arrow-left me-2"></i>Back to Tours
         </a>

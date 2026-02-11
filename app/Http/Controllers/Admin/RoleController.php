@@ -12,7 +12,7 @@ class RoleController extends Controller
        public function __construct()
     {
         $this->middleware(function ($request, $next) {
-            if (!auth()->user()->hasRole('admin')) {
+              if (!auth()->user()->hasRole(['admin', 'subAdmin'])) {
                 abort(403, 'Unauthorized');
             }
             return $next($request);
@@ -26,6 +26,9 @@ class RoleController extends Controller
 
     public function create()
     {
+        if (!auth()->user()->can('create role')) {
+                    abort(403,"don't have permission to create role");
+                }
         $permissions = Permission::all()->groupBy('group');
         return view('admin.roles.create', compact('permissions'));
     }
@@ -51,6 +54,9 @@ class RoleController extends Controller
 
     public function edit(Role $role)
     {
+        if (!auth()->user()->can('edit role')) {
+                    abort(403,"don't have permission to edit role");
+        }
         $permissions = Permission::all()->groupBy('group');
         $rolePermissions = $role->permissions->pluck('id')->toArray();
         
@@ -81,6 +87,9 @@ class RoleController extends Controller
     
     public function destroy(Role $role)
     {
+        if (!auth()->user()->can('delete role')) {
+                    abort(403,"don't have permission to delete role");
+                }
         $role->delete();
         
         return redirect()->route('admin.roles.index')

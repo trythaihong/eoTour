@@ -8,10 +8,10 @@ use Spatie\Permission\Models\Permission;
 
 class PermissionController extends Controller
 {
-       public function __construct()
+    public function __construct()
     {
         $this->middleware(function ($request, $next) {
-            if (!auth()->user()->hasRole('admin')) {
+              if (!auth()->user()->hasRole(['admin', 'subAdmin'])) {
                 abort(403, 'Unauthorized');
             }
             return $next($request);
@@ -25,6 +25,9 @@ class PermissionController extends Controller
 
     public function create()
     {
+        if (!auth()->user()->can('create permissions')) {
+                    abort(403,"don't have permission to create permission");
+                }
         return view('admin.permissions.create');
     }
 
@@ -47,6 +50,9 @@ class PermissionController extends Controller
 
     public function edit(Permission $permission)
     {
+        if (!auth()->user()->can('edit permissions')) {
+                    abort(403,"don't have permission to edit permission");
+                }
         return view('admin.permissions.edit', compact('permission'));
     }
 
@@ -68,6 +74,9 @@ class PermissionController extends Controller
 
     public function destroy(Permission $permission)
     {
+        if (!auth()->user()->can('delete permissions')) {
+                    abort(403,"don't have permission to delete permission");
+                }
         $permission->delete();
         
         return redirect()->route('admin.permissions.index')

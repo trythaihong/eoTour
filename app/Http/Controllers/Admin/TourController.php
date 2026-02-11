@@ -12,9 +12,12 @@ class TourController extends Controller
     public function __construct()
     {
         $this->middleware(function ($request, $next) {
-            if (!auth()->user()->hasRole('admin')) {
+             if (!auth()->user()->hasRole(['admin', 'subAdmin'])) {
                 abort(403, 'Unauthorized');
             }
+             
+    
+
             return $next($request);
         });
         
@@ -40,6 +43,10 @@ class TourController extends Controller
 
     public function create()
     {
+         if (!auth()->user()->can('create tours')) {
+                    abort(403,"don't have permission to create tours");
+                }
+
         return view('admin.tours.create');
     }
 
@@ -67,6 +74,10 @@ class TourController extends Controller
 
     public function edit(Tour $tour)
     {
+        if (!auth()->user()->can('edit tours')) {
+                    abort(403,"don't have permission to edit tours");
+                }
+    
         return view('admin.tours.edit', compact('tour'));
     }
 
@@ -97,10 +108,13 @@ class TourController extends Controller
 
     public function destroy(Tour $tour)
     {
+         if (!auth()->user()->can('delete tours')) {
+                    abort(403,"don't have permission to delete tours");
+                }
         if ($tour->image) {
             Storage::disk('public')->delete($tour->image);
         }
-        
+       
         $tour->delete();
 
         return redirect()->route('admin.tours.index')

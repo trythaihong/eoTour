@@ -12,7 +12,7 @@ class DashboardController extends Controller
        public function __construct()
     {
         $this->middleware(function ($request, $next) {
-            if (!auth()->user()->hasRole('admin')) {
+             if (!auth()->user()->hasRole(['admin', 'subAdmin'])) {
                 abort(403, 'Unauthorized');
             }
             return $next($request);
