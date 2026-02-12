@@ -10,14 +10,11 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $featuredTours = Tour::where('status', 'active')
-            ->where('start_date', '>', now())
-            ->take(6)
-            ->get();
+        
 
         $tours = Tour::where('status', 'active')->paginate(9);
 
-        return view('frontend.home', compact('featuredTours', 'tours'));
+        return view('frontend.home', compact( 'tours'));
     }
 
     public function showTour(Tour $tour)

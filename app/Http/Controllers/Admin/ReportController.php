@@ -16,14 +16,13 @@ class ReportController extends Controller
         $this->middleware('role:subAdmin|admin');
     }
 
-    /**
-     * Booking by Tour Report
-     */
+  
     public function bookingByTour(Request $request)
     {
          if (!auth()->user()->can('view_report_by_tour')) {
                     abort(403,"don't have permission to view report by tour");
                 }
+                
         $query = Tour::withCount(['bookings' => function($q) use ($request) {
             if ($request->filled('start_date') && $request->filled('end_date')) {
                 $q->whereBetween('created_at', [$request->start_date, $request->end_date]);
@@ -44,28 +43,21 @@ class ReportController extends Controller
         return view('admin.reports.booking-by-tour', compact('tours'));
     }
 
-    /**
-     * Show tour booking details
-     */
+    
     public function tourBookingDetails($id, Request $request)
     {
         $tour = Tour::findOrFail($id);
         
         $query = $tour->bookings()->with('user');
 
-        // Apply date filters
-        if ($request->filled('start_date') && $request->filled('end_date')) {
-            $query->whereBetween('created_at', [$request->start_date, $request->end_date]);
-        }
+        
 
         $bookings = $query->paginate(10);
 
         return view('admin.reports.tour-details', compact('tour', 'bookings'));
     }
 
-    /**
-     * Booking Report with filters
-     */
+    
     public function bookingReport(Request $request)
     {
         if (!auth()->user()->can('View_report_bookings')) {
@@ -99,14 +91,12 @@ class ReportController extends Controller
 
         $bookings = $query->orderBy('created_at', 'desc')->paginate(15);
 
-        $tours = Tour::all(); // For filter dropdown
+        $tours = Tour::all(); 
 
         return view('admin.reports.booking-report', compact('bookings', 'tours'));
     }
 
-    /**
-     * Export Booking Report to PDF
-     */
+  
     public function exportBookingReportPDF(Request $request)
     {
         $query = Booking::with(['tour', 'user']);

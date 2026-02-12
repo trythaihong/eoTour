@@ -92,15 +92,7 @@
                                 </div>
                             </div>
 
-                            <div class="alert alert-info">
-                                <h6 class="alert-heading">Important Information</h6>
-                                <ul class="mb-0">
-                                    <li>Your booking will be confirmed within 24 hours</li>
-                                    <li>Full payment is required upon confirmation</li>
-                                    <li>Cancellation policy: 7 days before tour start for full refund</li>
-                                    <li>Please ensure all traveler details are accurate</li>
-                                </ul>
-                            </div>
+                           
 
                             <div class="d-flex justify-content-between align-items-center mt-4">
                                 <a href="{{ route('tour.show', $tour) }}" class="btn btn-outline-secondary">
