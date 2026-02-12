@@ -46,10 +46,10 @@ Route::middleware(['auth', 'role:admin|subAdmin'])
             Route::get('/tour-details/{id}', [ReportController::class, 'tourBookingDetails'])
                 ->name('tour-details');
 
-            // Route::get('/booking-report', [ReportController::class, 'bookingReport'])
-            //     ->name('booking-report');
+            Route::get('/booking-report', [ReportController::class, 'bookingReport'])
+                ->name('booking-report');
 
-            // Route::post('/export-booking-report', [ReportController::class, 'exportBookingReportPDF'])
-            //     ->name('export-booking-report');
+            Route::post('/export-booking-report', [ReportController::class, 'exportBookingReportPDF'])
+                ->name('export-booking-report');
         
     });

@@ -191,7 +191,12 @@
                                 <i class="fas fa-chart-bar"></i> Report by Tour
                             </a>
                         </li>
-
+                         <li class="nav-item">
+                            <a class="nav-link {{ request()->is('admin/report*') ? 'active' : '' }}" 
+                            href="{{ route('admin.booking-report') }}">
+                                <i class="fas fa-chart-line"></i> Report Booking
+                            </a>
+                        </li>
                        
 
                         <li class="nav-item">
