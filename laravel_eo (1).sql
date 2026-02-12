@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 10, 2026 at 03:59 AM
+-- Generation Time: Feb 12, 2026 at 03:07 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -46,12 +46,14 @@ CREATE TABLE `bookings` (
 --
 
 INSERT INTO `bookings` (`id`, `tour_id`, `user_id`, `customer_name`, `customer_email`, `people_count`, `total_price`, `status`, `special_requests`, `created_at`, `updated_at`) VALUES
-(2, 2, 2, 'Regular User', 'user@eotour.com', 1, 2500.00, 'pending', NULL, '2026-02-09 06:25:47', '2026-02-09 06:25:47'),
 (3, 3, 2, 'Regular User', 'user@eotour.com', 3, 10500.00, 'confirmed', 'good boy', '2026-02-09 06:55:04', '2026-02-09 07:00:41'),
-(4, 4, 3, 'heng', 'heng@gmail.com', 2, 60.00, 'pending', NULL, '2026-02-09 07:10:03', '2026-02-09 07:10:03'),
-(5, 3, 2, 'Regular User', 'user@eotour.com', 2, 7000.00, 'pending', NULL, '2026-02-09 19:10:57', '2026-02-09 19:10:57'),
-(6, 2, 2, 'Regular User', 'user@eotour.com', 2, 5000.00, 'pending', NULL, '2026-02-09 19:13:00', '2026-02-09 19:13:00'),
-(7, 3, 4, 'Sub Admin User', 'subadmin@eotour.com', 1, 3500.00, 'pending', NULL, '2026-02-09 19:47:17', '2026-02-09 19:47:17');
+(6, 2, 2, 'Regular User', 'user@eotour.com', 2, 5000.00, 'confirmed', NULL, '2026-02-09 19:13:00', '2026-02-09 23:06:53'),
+(17, 3, 2, 'Regular User', 'user@eotour.com', 2, 7000.00, 'pending', NULL, '2026-02-10 21:16:59', '2026-02-10 21:16:59'),
+(18, 3, 2, 'Regular User', 'user@eotour.com', 4, 14000.00, 'pending', NULL, '2026-02-10 21:58:50', '2026-02-10 21:58:50'),
+(19, 3, 2, 'Regular User', 'user@eotour.com', 3, 10500.00, 'pending', NULL, '2026-02-11 04:17:02', '2026-02-11 04:17:02'),
+(20, 3, 1, 'Admin User', 'admin@eotour.com', 3, 10500.00, 'pending', NULL, '2026-02-11 04:18:06', '2026-02-11 04:18:06'),
+(21, 3, 1, 'Admin User', 'admin@eotour.com', 3, 10500.00, 'pending', NULL, '2026-02-11 05:10:05', '2026-02-11 05:10:05'),
+(22, 3, 2, 'Regular User', 'user@eotour.com', 7, 24500.00, 'pending', NULL, '2026-02-11 19:02:14', '2026-02-11 19:02:14');
 
 -- --------------------------------------------------------
 
@@ -64,6 +66,13 @@ CREATE TABLE `cache` (
   `value` mediumtext NOT NULL,
   `expiration` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `cache`
+--
+
+INSERT INTO `cache` (`key`, `value`, `expiration`) VALUES
+('laravel-cache-spatie.permission.cache', 'a:3:{s:5:\"alias\";a:4:{s:1:\"a\";s:2:\"id\";s:1:\"b\";s:4:\"name\";s:1:\"c\";s:10:\"guard_name\";s:1:\"r\";s:5:\"roles\";}s:11:\"permissions\";a:14:{i:0;a:4:{s:1:\"a\";i:2;s:1:\"b\";s:12:\"create tours\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:6;}}i:1;a:4:{s:1:\"a\";i:3;s:1:\"b\";s:10:\"edit tours\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:6;}}i:2;a:4:{s:1:\"a\";i:4;s:1:\"b\";s:12:\"delete tours\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:6;}}i:3;a:4:{s:1:\"a\";i:6;s:1:\"b\";s:15:\"create bookings\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:4;a:4:{s:1:\"a\";i:7;s:1:\"b\";s:13:\"edit bookings\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:5;a:4:{s:1:\"a\";i:8;s:1:\"b\";s:15:\"delete bookings\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:6;a:4:{s:1:\"a\";i:10;s:1:\"b\";s:11:\"create role\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:7;a:4:{s:1:\"a\";i:11;s:1:\"b\";s:9:\"edit role\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:8;a:4:{s:1:\"a\";i:15;s:1:\"b\";s:11:\"delete role\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:9;a:4:{s:1:\"a\";i:16;s:1:\"b\";s:18:\"create permissions\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:10;a:4:{s:1:\"a\";i:17;s:1:\"b\";s:16:\"edit permissions\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:11;a:4:{s:1:\"a\";i:18;s:1:\"b\";s:18:\"delete permissions\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:12;a:4:{s:1:\"a\";i:20;s:1:\"b\";s:19:\"view_report_by_tour\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:6;}}i:13;a:4:{s:1:\"a\";i:21;s:1:\"b\";s:20:\"View_report_bookings\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:6;}}}s:5:\"roles\";a:2:{i:0;a:3:{s:1:\"a\";i:1;s:1:\"b\";s:5:\"admin\";s:1:\"c\";s:3:\"web\";}i:1;a:3:{s:1:\"a\";i:6;s:1:\"b\";s:8:\"subAdmin\";s:1:\"c\";s:3:\"web\";}}}', 1770896823);
 
 -- --------------------------------------------------------
 
@@ -183,7 +192,8 @@ CREATE TABLE `model_has_roles` (
 INSERT INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
 (1, 'App\\Models\\User', 1),
 (2, 'App\\Models\\User', 2),
-(2, 'App\\Models\\User', 5);
+(2, 'App\\Models\\User', 5),
+(6, 'App\\Models\\User', 3);
 
 -- --------------------------------------------------------
 
@@ -216,17 +226,20 @@ CREATE TABLE `permissions` (
 --
 
 INSERT INTO `permissions` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VALUES
-(1, 'view tours', 'web', '2026-02-09 06:25:47', '2026-02-09 06:25:47'),
-(2, 'create tours', 'web', '2026-02-09 06:25:47', '2026-02-09 06:25:47'),
-(3, 'edit tours', 'web', '2026-02-09 06:25:47', '2026-02-09 06:25:47'),
-(4, 'delete tours', 'web', '2026-02-09 06:25:47', '2026-02-09 06:25:47'),
-(5, 'view bookings', 'web', '2026-02-09 06:25:47', '2026-02-09 06:25:47'),
-(6, 'create bookings', 'web', '2026-02-09 06:25:47', '2026-02-09 06:25:47'),
-(7, 'edit bookings', 'web', '2026-02-09 06:25:47', '2026-02-09 06:25:47'),
+(2, 'create tours', 'web', '2026-02-09 06:25:47', '2026-02-11 00:58:55'),
+(3, 'edit tours', 'web', '2026-02-09 06:25:47', '2026-02-11 00:59:03'),
+(4, 'delete tours', 'web', '2026-02-09 06:25:47', '2026-02-11 00:59:10'),
+(6, 'create bookings', 'web', '2026-02-09 06:25:47', '2026-02-11 00:59:20'),
+(7, 'edit bookings', 'web', '2026-02-09 06:25:47', '2026-02-11 00:59:30'),
 (8, 'delete bookings', 'web', '2026-02-09 06:25:47', '2026-02-09 06:25:47'),
-(9, 'manage users', 'web', '2026-02-09 06:25:47', '2026-02-09 06:25:47'),
-(10, 'manage roles', 'web', '2026-02-09 06:25:47', '2026-02-09 06:25:47'),
-(11, 'manage permissions', 'web', '2026-02-09 06:25:47', '2026-02-09 06:25:47');
+(10, 'create role', 'web', '2026-02-09 06:25:47', '2026-02-10 20:45:51'),
+(11, 'edit role', 'web', '2026-02-09 06:25:47', '2026-02-10 23:30:04'),
+(15, 'delete role', 'web', '2026-02-10 20:46:44', '2026-02-10 23:30:19'),
+(16, 'create permissions', 'web', '2026-02-10 23:41:34', '2026-02-10 23:41:34'),
+(17, 'edit permissions', 'web', '2026-02-10 23:41:49', '2026-02-10 23:41:49'),
+(18, 'delete permissions', 'web', '2026-02-10 23:42:04', '2026-02-10 23:42:04'),
+(20, 'view_report_by_tour', 'web', '2026-02-11 04:36:22', '2026-02-11 04:36:22'),
+(21, 'View_report_bookings', 'web', '2026-02-11 04:40:29', '2026-02-11 04:40:29');
 
 -- --------------------------------------------------------
 
@@ -248,7 +261,8 @@ CREATE TABLE `roles` (
 
 INSERT INTO `roles` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VALUES
 (1, 'admin', 'web', '2026-02-09 06:25:47', '2026-02-09 06:25:47'),
-(2, 'user', 'web', '2026-02-09 06:25:47', '2026-02-09 06:25:47');
+(2, 'user', 'web', '2026-02-09 06:25:47', '2026-02-09 06:25:47'),
+(6, 'subAdmin', 'web', '2026-02-10 18:51:29', '2026-02-10 18:51:29');
 
 -- --------------------------------------------------------
 
@@ -266,17 +280,25 @@ CREATE TABLE `role_has_permissions` (
 --
 
 INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
-(1, 1),
 (2, 1),
+(2, 6),
 (3, 1),
+(3, 6),
 (4, 1),
-(5, 1),
+(4, 6),
 (6, 1),
 (7, 1),
 (8, 1),
-(9, 1),
 (10, 1),
-(11, 1);
+(11, 1),
+(15, 1),
+(16, 1),
+(17, 1),
+(18, 1),
+(20, 1),
+(20, 6),
+(21, 1),
+(21, 6);
 
 -- --------------------------------------------------------
 
@@ -298,7 +320,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('3EzEyUHJEzwv7iEq3RRZcrnsapa9LvShXmXYZWvn', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiZWdQTWY3eDdnWGFPcHFiRHFkeERkbE11cVZoWFJTRUJPRzhMU21LeSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7czo1OiJyb3V0ZSI7czo0OiJob21lIjt9fQ==', 1770692196);
+('uPaDLn23f2z9rwDSaYxvgqxPZJymQdKSmOGZOgL1', 2, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiZ2tNRDlhSFl0ZVBKeGRka2tKMDV4ZXpsdGtQWGRsYVNCWXRiYjRRZiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6Mzc6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9ib29raW5nL2hpc3RvcnkiO3M6NToicm91dGUiO3M6MTU6ImJvb2tpbmcuaGlzdG9yeSI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjI7czo0OiJhdXRoIjthOjE6e3M6MjE6InBhc3N3b3JkX2NvbmZpcm1lZF9hdCI7aToxNzcwODYxNTg5O319', 1770861734);
 
 -- --------------------------------------------------------
 
@@ -324,9 +346,10 @@ CREATE TABLE `tours` (
 --
 
 INSERT INTO `tours` (`id`, `name`, `description`, `price`, `start_date`, `end_date`, `status`, `image`, `created_at`, `updated_at`) VALUES
-(2, 'Japanese Adventuress', 'Explore Tokyo, Kyoto, and Osaka in this 10-day cultural journey through Japan.', 2500.00, '2026-03-26', '2026-04-05', 'active', 'tours/YOQcZcghZ3l1ws3RCFDAinKsGZoUOPzrPwBph33s.jpg', '2026-02-09 06:25:47', '2026-02-09 06:49:28'),
-(3, 'European Discovery', '14-day tour covering Paris, Rome, and Barcelona. Perfect for first-time Europe visitors.', 3500.00, '2026-02-09', '2026-02-10', 'active', 'tours/AfFC5FKQQ1951oZINHHjnlnzTTC9WmaWVo6PZpyw.jpg', '2026-02-09 06:25:47', '2026-02-09 07:08:42'),
-(4, 'Vietnam', 'welcome Vietnam', 30.00, '2026-02-10', '2026-02-11', 'active', 'tours/wxocqEj2T04ifwIR7afuTNXqw2HvVBUa8x8L998i.jpg', '2026-02-09 07:03:02', '2026-02-09 07:03:02');
+(2, 'Japanese Adventuress', 'Explore Tokyo, Kyoto, and Osaka in this 10-day cultural journey through Japan.', 2500.00, '2026-02-09', '2026-02-19', 'active', 'tours/YOQcZcghZ3l1ws3RCFDAinKsGZoUOPzrPwBph33s.jpg', '2026-02-09 06:25:47', '2026-02-11 04:23:39'),
+(3, 'European Discovery', '14-day tour covering Paris, Rome, and Barcelona. Perfect for first-time Europe visitors.', 3500.00, '2026-02-09', '2026-02-19', 'active', 'tours/AfFC5FKQQ1951oZINHHjnlnzTTC9WmaWVo6PZpyw.jpg', '2026-02-09 06:25:47', '2026-02-11 04:23:21'),
+(4, 'Vietnam', 'welcome Vietnam', 30.00, '2026-02-09', '2026-02-19', 'active', 'tours/iJwbLyKn4lO8oDvQkC7u8gtti1ZgosKW8uxewIUL.jpg', '2026-02-09 07:03:02', '2026-02-11 05:13:49'),
+(7, 'admin', 'ssss', 222.00, '2026-02-10', '2026-02-19', 'inactive', 'tours/NaNUyT9R1AXqL8UFuq8p8ipU7lZhofoxndURpIML.jpg', '2026-02-11 04:14:18', '2026-02-11 04:14:18');
 
 -- --------------------------------------------------------
 
@@ -354,9 +377,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `name`, `email`, `phone`, `address`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'Admin User', 'admin@eotour.com', '1234567890', 'Admin Address', NULL, '$2y$12$95VxFLZoLnPqUKTbJL4PJOVObGvCAx4NxXr7JNxb5AxM9xiBC.2Iu', NULL, '2026-02-09 06:25:47', '2026-02-09 06:25:47'),
 (2, 'Regular User', 'user@eotour.com', '0987654321', 'User Address', NULL, '$2y$12$PgNH8eipZDch1oUX8Lj46.0qEUgOth9TaG2raBkANT6FRLV9SFFe2', NULL, '2026-02-09 06:25:47', '2026-02-09 06:25:47'),
-(3, 'heng', 'heng@gmail.com', NULL, NULL, NULL, '$2y$12$sK0T2i1/0sMDHZAI3G1Kk.P2fYaJVp2/S9XS27U6Y.b..dyG7e1uK', NULL, '2026-02-09 07:09:29', '2026-02-09 07:09:29'),
-(4, 'Sub Admin User', 'subadmin@eotour.com', '1234567891', 'Sub Admin Address', NULL, '$2y$12$1L2pBf70setDbxYiNvQbXeHA0.sKP1uZrgOpp2jSRQPsjbo3av5Lu', NULL, '2026-02-09 19:45:16', '2026-02-09 19:45:16'),
-(5, 'User Two', 'user2@eotour.com', '0987654322', 'User Two Address', NULL, '$2y$12$U5YS1Gqr5Gixvc/XtT5.n.mieYQg34yPZ09e5XTTKqw9E2T3MM5jO', NULL, '2026-02-09 19:45:17', '2026-02-09 19:45:17');
+(3, 'heng', 'subAdmin@gmail.com', NULL, NULL, NULL, '$2y$12$sK0T2i1/0sMDHZAI3G1Kk.P2fYaJVp2/S9XS27U6Y.b..dyG7e1uK', NULL, '2026-02-09 07:09:29', '2026-02-09 07:09:29');
 
 --
 -- Indexes for dumped tables
@@ -480,7 +501,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -504,25 +525,25 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tours`
 --
 ALTER TABLE `tours`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
